@@ -6,6 +6,7 @@ import { WeatherModule } from './weather/weather.module';
 import { AppComponent } from './app.component';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {StoreModule} from '@ngrx/store';
     StoreDevtoolsModule.instrument({
       maxAge: 10
     }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

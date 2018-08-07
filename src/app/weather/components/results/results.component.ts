@@ -1,15 +1,15 @@
-import { Component, OnChanges } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-results',
-  templateUrl: './results.component.html'
+  templateUrl: './results.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ResultsComponent implements OnChanges {
-  constructor() { }
+export class ResultsComponent {
 
-  ngOnChanges() {
-    // IMPLEMENT ANYTHING YOU BEKIEVE YOU MIGHT NEED HERE
-  }
+  @Input()
+  weather$: Observable<any>;
+
+  constructor() {}
 }
-
-

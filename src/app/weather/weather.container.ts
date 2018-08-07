@@ -8,7 +8,7 @@ import {Weather} from '../model/weather';
   selector: 'app-weather',
   template: `
   <app-search (citySearchEmitter)="citySearch($event)"></app-search>
-  <app-results></app-results>  `,
+  <app-results [weather$]="cities$"></app-results>  `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WeatherContainerComponent implements OnInit {
