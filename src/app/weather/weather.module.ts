@@ -8,7 +8,7 @@ import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-// import { reducers, effects } from './store';
+import { reducers, effects } from './store';
 
 
 @NgModule({
@@ -17,8 +17,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    // StoreModule.forFeature('weather', reducers),
-    // EffectsModule.forFeature(effects)
+    StoreModule.forFeature('weather', reducers),
+    EffectsModule.forFeature(effects)
   ],
   declarations: [
     SearchComponent,
