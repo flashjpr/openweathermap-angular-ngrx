@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
+import {Weather} from '../model/weather';
 
 @Injectable()
 export class WeatherService {
@@ -16,8 +17,18 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  searchWeatherForCity(city) {
-    // implement the service
+  searchWeatherForCity(city): Observable<Weather> {
+    const urlParams: string = [
+      `?q=${city}`,
+      `cnt=${this.params.cnt}`,
+      `units=${this.params.units}`,
+      `appid=${this.params.APPID}`
+    ].join('&');
+
+    const queryUrl = `${this.url}${urlParams}`;
+
+    return this.http.get<Weather>(queryUrl)
+      .pipe(catchError((error: any) => Observable.throw(error.json())));
   }
 
 }
