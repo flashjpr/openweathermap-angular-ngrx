@@ -1,15 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { WeatherContainer } from './weather.container';
+import { WeatherContainerComponent } from './weather.container';
 
-describe('WeatherContainer', () => {
-  let component: WeatherContainer;
-  let fixture: ComponentFixture<WeatherContainer>;
+describe('WeatherContainerComponent', () => {
+  let component: WeatherContainerComponent;
+  let fixture: ComponentFixture<WeatherContainerComponent>;
 
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeatherContainer ],
+      declarations: [ WeatherContainerComponent ],
       imports: [],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
@@ -17,7 +17,7 @@ describe('WeatherContainer', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WeatherContainer);
+    fixture = TestBed.createComponent(WeatherContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

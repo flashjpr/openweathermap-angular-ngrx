@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   <app-search></app-search>
   <app-results></app-results>  `
 })
-export class WeatherContainer {
+export class WeatherContainerComponent {
 
   constructor() {}
 
