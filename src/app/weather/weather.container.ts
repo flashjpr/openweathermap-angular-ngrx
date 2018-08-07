@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import * as fromStore from './store';
+import {Observable} from 'rxjs/Observable';
+import {Weather} from '../model/weather';
 
 @Component({
   selector: 'app-weather',
   template: `
   <app-search></app-search>
-  <app-results></app-results>  `
+  <app-results></app-results>  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WeatherContainerComponent {
+export class WeatherContainerComponent implements OnInit {
 
-  constructor() {}
+  cities$: Observable<Weather[]>;
 
-  citySearch() {
-    // TO BE IMPLMENTED
+  constructor(private store: Store<fromStore.WeatherState>) {}
+
+  ngOnInit() {
+    this.cities$ = this.store.select(fromStore.getAllWeatherAsArray);
+  }
+
+  citySearch(input: string) {
+    this.store.dispatch(new fromStore.AddWeather(input));
   }
 }
